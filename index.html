@@ -1,74 +1,361 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Youtubeevents : An easy interface to attach listeners to YouTube iFrames" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Youtubeevents</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/acronymmedia/YouTubeEvents">View on GitHub</a>
-
-          <h1 id="project_title">Youtubeevents</h1>
-          <h2 id="project_tagline">An easy interface to attach listeners to YouTube iFrames</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/acronymmedia/YouTubeEvents/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/acronymmedia/YouTubeEvents/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>YouTube Events Demo | Acronym</title>
+    <link rel="stylesheet" href="css/foundation.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link href="http://fonts.googleapis.com/css?family=Antic" rel="stylesheet" type="text/css">
+    <script src="js/vendor/custom.modernizr.js"></script>
+</head>
+<body>
+    <header>
+        <div class="row">
+            <div class="large-6 small-6 columns small-centered">
+                <h1>
+                    <span>Acronym | Keyword=Customer. Know Yours.</span>
+                    <a href="http://www.acronym.com"><img src="./img/header_logo.png" alt="Acronym | keyword=customer. know yours." width="340" height="90"></a>
+                </h1>
+            </div>
+            <div class="large-6 small-6 columns small-centered" id="locations">
+                <p>
+                    New York
+                    &nbsp;<span class="accent">&bull;</span>&nbsp;
+                    Singapore
+                    &nbsp;<span class="accent">&bull;</span>&nbsp;
+                    London
+                    <br />
+                    +1 (212) 691 7051
+                </p>
+            </div>
+        </div>
+    </header>
+                
+    <div class="row">
+        <div class="large-12 columns">
+            <h2>YouTube Events<br /><span>Binding JS to the YouTube Player</span></h2>
+            <p>YouTube Events allows for developers to bind callbacks to iFramed YouTube videos. In the examples we'll show you how to bind simple console logging, however the code does not limit you to just that. You can bind any JavaScript you'd like!</p>
+            <hr />
+        </div>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+    <div class="row">
+        <div class="large-12 columns">
+            <h3>An example</h3>
+            <p>Before we begin, let's see an example of what this can do! Play, pause, or do whatever you'd like to the YouTube video below. Underneath the YouTube video, there is a table that shows all of the actions that the user (that's you!) is doing to the video. Then, view the code that is outputting to your browser's console.</p>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="flex-video widescreen">
+                        <iframe width="560" height="315" src="http://www.youtube.com/embed/KRvbFpeZ11Y?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div id="output">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Video Title</th>
+                                    <th>Action</th>
+                                    <th>Video Position</th>
+                                </tr>                            
+                            </thead>
+                            <tbody>
+                                <tr id="removeMe">
+                                    <td colspan="3" style="text-align:center!important;">Play the video above to see something here!</td>
+                                </tr>
+                            </tbody>
+                        </table>                            
+                    </div>
+                </div>
+            </div>
+            <hr />
+        </div>
     </div>
+    <div class="row">
+        <div class="large-8 columns">
+            <h3>The code</h3>
+            <p>Below is the code that output to your browser's console for the example above</p>
+            <pre><code class="language-javascript">YouTubeEvents.bind('load', function(data) {
+    console.log(
+        data.video.title,
+        'LOAD'
+    );
+});
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Youtubeevents maintained by <a href="https://github.com/acronymmedia">acronymmedia</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+YouTubeEvents.bind('initial', function(data) {
+    console.log(
+        data.video.title,
+        '1st PLAY'
+    );
+});
 
+YouTubeEvents.bind('replay', function(data) {
+    console.log(
+        data.video.title,
+        'REPLAY at',
+        data.video.currentTime + ' seconds'
+    );
+});
+
+YouTubeEvents.bind('play', function(data) {
+    console.log(
+        data.video.title,
+        'PLAY at',
+        data.video.currentTime + ' seconds'
+    );
+});
+
+YouTubeEvents.bind('pause', function(data) {
+    console.log(
+        data.video.title,
+        'PAUSE at',
+        data.video.currentTime + ' seconds'
+    );
+});
+
+YouTubeEvents.bind('complete', function(data) {
+    console.log(
+        data.video.title,
+        'COMPLETE'
+    );
+});
     
+// Milestone event, with percentage viewed as the value
+YouTubeEvents.bind('milestone', function(data) {
+    console.log(
+        data.video.title,
+        'MILESTONE ' + data.milestone + '% at',
+        data.video.currentTime + ' seconds'
+    );
+});
 
-  </body>
+// Cued up in the playlist
+YouTubeEvents.bind('cued', function(data) {
+    console.log(
+        data.video.title,
+        'cued'
+    );
+});
+
+// Buffering event
+YouTubeEvents.bind('buffer', function(data) {
+    console.log(
+        data.video.title,
+        'BUFFERING at',
+        data.video.currentTime + ' seconds'
+    );
+});
+
+// Seeked event
+YouTubeEvents.bind('seek', function(data) {
+    console.log(
+        data.video.title,
+        'SEEKED to ',
+        data.video.currentTime + ' seconds'
+    );
+});</pre></code>
+        </div>
+        <div class="large-4 columns">
+            <h4>About Acronym</h4>
+            <p>Acronym Worldwide is an independent, global search and Keyword-Driven Marketing&trade; agency, headquartered in New York’s landmark Empire State Building with operations in the U.S., U.K. and Singapore. <br /><br />Consistently rated as a "Top 10 Search Engine Agency" by Advertising Age, Acronym offers its Clients over 15 years of search marketing experience and a distinct approach to enterprise-wide keyword optimization.</p>
+            <h4>More Resources</h4>
+            <ul class="disc">
+                <li>
+                    <a href="https//github.com/acronymmedia/YouTubeEvents">GitHub Project Page</a>
+                    <br />View the project on GitHub for the latest code, examples and support!
+                </li>
+                <li>
+                    <a href="http://www.acronym.com/">Acronym Homepage</a>
+                    <br />View more about Acronym and what we can do for you!
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="large-12 columns large-centered">
+                Copyright (&copy;) 2013 <a href="http://www.acronym.com">Acronym</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.write('<script src=' +
+            ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
+            '.js><\/script>')
+    </script>
+    <script src="js/foundation.min.js"></script>
+    <script src="./YouTubeEvents.js" type="text/javascript"></script>
+    <script src="js/vendor/prism.js" type="text/javascript"></script>
+    <script>
+        // Foundation stuff
+        $(document).foundation();
+        
+        // Our goodies!
+        (function(window) {
+            
+            YouTubeEvents.bind('load', function(data) {
+                $('#removeMe').fadeOut();
+                $('<tr><td>' + data.video.title + '</td><td>LOAD</td><td><span class="not-applicable">N/A</span></td></tr>')
+                    .hide()
+                    .appendTo('#output tbody')
+                    .fadeIn();
+            });
+
+            YouTubeEvents.bind('initial', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>1<sup>ST</sup> PLAY</td><td><span class="not-applicable">N/A</span></td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+
+            YouTubeEvents.bind('replay', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>REPLAY</td><td>' + data.video.currentTime + ' seconds</td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+
+            YouTubeEvents.bind('play', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>PLAY</td><td>' + data.video.currentTime + ' seconds</td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+
+            YouTubeEvents.bind('pause', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>PAUSE</td><td>' + data.video.currentTime + ' seconds</td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+
+            YouTubeEvents.bind('complete', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>COMPLETE</td><td><span class="not-applicable">N/A</span></td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+                
+            // Milestone event, with percentage viewed as the value
+            YouTubeEvents.bind('milestone', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>MILESTONE ' + data.milestone + '%</td><td>' + data.video.currentTime + ' seconds</td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+
+            // Cued up in the playlist
+            YouTubeEvents.bind('cued', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>CUED</td><td><span class="not-applicable">N/A</span></td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+
+            // Buffering event
+            YouTubeEvents.bind('buffer', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>BUFFER</td><td>' + data.video.currentTime + ' seconds</td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+
+            // Seeked event
+            YouTubeEvents.bind('seek', function(data) {
+                $('<tr><td>' + data.video.title + '</td><td>SEEK</td><td>' + data.video.currentTime + ' seconds</td></tr>')
+					.hide()
+					.appendTo('#output tbody')
+					.fadeIn();
+            });
+
+        })(window || {});
+        
+        (function(window) {
+            YouTubeEvents.bind('load', function(data) {
+                console.log(
+                    data.video.title,
+                    'LOAD'
+                );
+            });
+
+            YouTubeEvents.bind('initial', function(data) {
+                console.log(
+                    data.video.title,
+                    '1st PLAY'
+                );
+            });
+
+            YouTubeEvents.bind('replay', function(data) {
+                console.log(
+                    data.video.title,
+                    'REPLAY at',
+                    data.video.currentTime + ' seconds'
+                );
+            });
+
+            YouTubeEvents.bind('play', function(data) {
+                console.log(
+                    data.video.title,
+                    'PLAY at',
+                    data.video.currentTime + ' seconds'
+                );
+            });
+
+            YouTubeEvents.bind('pause', function(data) {
+                console.log(
+                    data.video.title,
+                    'PAUSE at',
+                    data.video.currentTime + ' seconds'
+                );
+            });
+
+            YouTubeEvents.bind('complete', function(data) {
+                console.log(
+                    data.video.title,
+                    'COMPLETE'
+                );
+            });
+                
+            // Milestone event, with percentage viewed as the value
+            YouTubeEvents.bind('milestone', function(data) {
+                console.log(
+                    data.video.title,
+                    'MILESTONE ' + data.milestone + '% at',
+                    data.video.currentTime + ' seconds'
+                );
+            });
+
+            // Cued up in the playlist
+            YouTubeEvents.bind('cued', function(data) {
+                console.log(
+                    data.video.title,
+                    'cued'
+                );
+            });
+
+            // Buffering event
+            YouTubeEvents.bind('buffer', function(data) {
+                console.log(
+                    data.video.title,
+                    'BUFFERING at',
+                    data.video.currentTime + ' seconds'
+                );
+            });
+
+            // Seeked event
+            YouTubeEvents.bind('seek', function(data) {
+                console.log(
+                    data.video.title,
+                    'SEEKED to ',
+                    data.video.currentTime + ' seconds'
+                );
+            });
+        })(window || {});
+    </script>
+</body>
 </html>
